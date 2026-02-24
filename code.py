@@ -103,14 +103,16 @@ def main():
         source_code = chain_input.invoke({'prompt_input': prompt})
 
         if not verify(source_code):
-            print("Error: This tool only generates unit tests for functions.")
+            print("Error: This tool only generates unit tests for functions.\n")
         else:
             response = chain_output.invoke({'prompt_output': source_code, 'file_name': get_file_name(file_path)})
-            output_path = Path(file_path).with_name("unit_test.py")
-            output_path.write_text(response, encoding="utf-8")
-
-        print("Unit tests generated successfully!")
-        print("Check unit_test.py in the same directory as the input file\n")
+            if response == 'Error: This tool only generates unit tests for functions.':
+                print("Error: This tool only generates unit tests for functions.\n")
+            else:
+                output_path = Path(file_path).with_name("unit_test.py")
+                output_path.write_text(response, encoding="utf-8")
+                print("Unit tests generated successfully!")
+                print("Check unit_test.py in the same directory as the input file\n")
 
 if __name__ == "__main__":
     main()
