@@ -3,8 +3,7 @@ from langchain_groq import ChatGroq
 from langchain_core.output_parsers import StrOutputParser
 from pathlib import Path
 from dotenv import load_dotenv
-from google import genai
-import os, ast
+import ast
 
 def verify(source_code):
     valid = True
@@ -32,8 +31,8 @@ def main():
     Output ONLY python pytest code. \
     Do not wrap the code in markdown formatting (like ```python). \
     WATCH OUT of the type of the return value of the function as it affects the output format; \
-    for example, don't expect dublicate keys in dictionaries. \
-    So, merge dublicate keys when dealing with dictionaries.
+    for example, don't expect duplicate keys in dictionaries. \
+    So, merge duplicate keys when dealing with dictionaries.
 
     SCOPE DEFINITION:
         If you got a query that has any of the following:
