@@ -1,6 +1,8 @@
 # Unit-testing
 This project use LLM API and Langchain to make unit testing
 
+.env file should be put in the same folder as the code
+
 At first, the program asks to choose whether you want to generate a unit test or exit
 
   type 1 -> for generating
